@@ -1,0 +1,108 @@
+﻿
+<title>Edit - Admin</title>
+<style type="text/css">
+    .link { text-align: center; }
+    .link a { display: block; }
+</style>
+
+<div class="topic-container row">
+    <div class="col-sm-12">
+        <div class="alert alert-info" style="margin-bottom:10px;">
+            <b>Topic List</b>
+            <a href="javascript:void(0)" class="btn btn-xs btn-info pull-right" ng-click="vm.editTopic(topic)" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Add New</a>
+        </div>
+
+        <table class="table table-condensed table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Display Name</th>
+                <th style="width:20px;">Image</th>
+                <th style="width:20px;">Edit</th>
+                <th style="width:50px;">Interview</th>
+                <th style="width:50px;">Objective</th>
+                <th style="width:50px;">Tutorial</th>
+            </tr>
+            <tr ng-repeat="topic in vm.topicList">
+                <td>{{topic.ID}}</td>
+                <td>{{topic.Name}}</td>
+                <td>{{topic.DisplayName}}</td>
+                <td class="text-center"><img src="{{vm.getImageUrl(topic.Image)}}" class="img-small" /></td>
+                <td class="link"><a href="javascript:void(0)" ng-click="vm.editTopic(topic)" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td class="link"><a href="javascript:void(0)" ui-sref="edit-interview({ topicId : topic.ID})"><span class="glyphicon glyphicon-user"></span></a></td>
+                <td class="link"><a href="javascript:void(0)" ui-sref="edit-multiple-choice({ topicId : topic.ID})"><span class="glyphicon glyphicon-ok"></span></a></td>
+                <td class="link"><a href="javascript:void(0)" ui-sref="edit-tutorial({ topicId : topic.ID})"><span class="glyphicon glyphicon-file"></span></a></td>
+            </tr>
+
+            <tr ng-if="vm.topicList.length===0">
+                <td colspan="6" class="text-center text-sm">No topic found</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content modal-lg">
+            <form name="vm.formQuestion" novalidate ng-submit="vm.formQuestion.$valid && vm.saveTopic()">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Topic ({{vm.topic.ID}})</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <span class="input-title">Name</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.topic.Name" ng-required="true" />
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <span class="input-title">Display Name</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.topic.DisplayName" ng-required="true" />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <span class="input-title">Short Description</span>
+                                    <textarea class="form-control" rows="6" ng-model="vm.topic.Description" ng-required="true" />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <span class="input-title">Image</span>
+                                    <div class="uploadIcon">
+                                        <input type="file" id="profilePic" file-model="myFile" posted-file="vm.topic.image" class="fileUploadInput">
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <img src="{{vm.getImageUrl(vm.topic.Image)}}" style="width:40px; float:right" />
+                                </div>
+                            </div>
+                            <br />
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-xs btn-primary btn-sm">Save</button>
+                    <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+

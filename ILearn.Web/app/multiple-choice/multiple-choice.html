@@ -1,0 +1,62 @@
+﻿<div class="content-info">
+    <content-info topic="vm.selectedTopic" currentpage="multiple-choice"></content-info>
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="leftNav">
+            <topic-list topics="vm.topicList" selected-topic="vm.selectedTopic.ID" type="multiple-choice"></topic-list>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-9 col-xs-12">
+        <div class="answerbox content-body" ng-if="vm.questionList.ques.length>0">
+            <div id="divData" class="divData">
+                <div class='qt' ng-repeat="q in vm.questionList.ques">
+                    <div class='tblQuesList'>
+                        <span class='ques' id='que_{{q.id}}' itemprop='keywords' data-id='{{q.id}}'>
+                            {{q.q}}
+                        </span>
+
+                        <ul class="multiple-choice-ol">
+                            <li>
+                                <div class="mc-symbol" ng-class="{'mc-symbol-selected' : q.show && q.a==1}"></div>
+
+                                <div class="mc-opt">{{q.o1}}</div>
+                            </li>
+                            <li>
+                                <div class="mc-symbol" ng-class="{'mc-symbol-selected' : q.show && q.a==2}"></div>
+                                <div class="mc-opt">{{q.o2}}</div>
+                            </li>
+
+                            <li>
+                                <div class="mc-symbol" ng-class="{'mc-symbol-selected' : q.show && q.a==3}"></div>
+                                <div class="mc-opt">{{q.o3}}</div>
+                            </li>
+
+                            <li ng-if="q.o4">
+                                <div class="mc-symbol" ng-class="{'mc-symbol-selected' : q.show && q.a==4}"></div>
+                                <div class="mc-opt">{{q.o4}}</div>
+                            </li>
+
+                            <li ng-if="q.o5">
+                                <div class="mc-symbol" ng-class="{'mc-symbol-selected' : q.show && q.a==5}"></div>
+                                <div class="mc-opt">{{q.o5}}</div>
+                            </li>
+                        </ul>
+
+                        <a href="javascript:void(0)" class="btn-mc-toggle btn btn-xs btn-info" ng-click="vm.toggleAnswer(q)">{{q.show ? 'Hide Answer' : 'Show Answer'}}</a>
+
+                        <div class='mc-answerbox' ng-if="q.show">
+                            <div> <span class="mc-answer-text">Answer is : </span> {{q['o' + q.a]}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <dir-pagination ng-if="vm.questionList.total > vm.questionList.perpage" pagetype="multiple-choice" topicurl="{{vm.url}}" currentpage="{{vm.questionList.currentpage}}" total="{{vm.questionList.total}}" perpage="vm.questionList.perpage"></dir-pagination>
+
+        </div>
+        <div class="no-data text-sm" ng-if="vm.questionList.ques.length===0">No questions added in this section. We are working on this topic and will update soon...</div>
+    </div>
+</div>

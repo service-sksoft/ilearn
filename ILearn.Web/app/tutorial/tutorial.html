@@ -1,0 +1,40 @@
+﻿<style>
+    .tutorial-title { font-weight: bold; color: #d42323; margin-bottom: 10px; }
+    .tutorial-desc { font-size: 12px !important; }
+    .tutorial-box { margin-bottom: 20px; }
+    .tutorial-content { border: 1px solid #f9f7f7; border-radius: 4px; background-color: #f9f9f9; padding: 10px; }
+</style>
+<div class="content-info">
+    <content-info topic="vm.selectedTopic" currentpage="tutorial"></content-info>
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="leftNav">
+            <div class="list-group" ng-repeat="q in vm.questionList.titles">
+                <a href="#" class="list-group-item disabled">{{q.title}}</a>
+                <a href="javascript:void(0)" ng-class="{'active' : st.id==vm.subtitle}" ui-sref="tutorial({url : vm.selectedTopic.URL, subtitle : st.id })" class="list-group-item" ng-repeat="st in q.subtitles">{{st.title}}</a>
+            </div>
+
+            <topic-list topics="vm.topicList" selected-topic="vm.selectedTopic.ID" type="tutorial"></topic-list>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-9 col-xs-12">
+        <div class="answerbox content-body" ng-if="vm.tutorialContents.length>0">
+            <div class="tutorial-content">
+                <div ng-repeat="q in vm.tutorialContents">
+                    <div class="tutorial-box">
+                        <div class='tutorial-title'>{{q.title}}</div>
+                        <div ng-if="q.type==2">
+                            <pre><code class="language-javascript"><span ng-bind-html="vm.highlightedContent(q)"></span></code></pre>
+                        </div>
+
+                        <div ng-if="q.type==1" class='tutorial-desc' ng-bind-html="vm.$sce.trustAsHtml(q.desc)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="no-data text-sm" ng-if="vm.tutorialContents.length===0">No tutorials added in this section. We are working on this topic and will update soon...</div>
+    </div>
+</div>

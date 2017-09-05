@@ -1,0 +1,25 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <form name="vm.formQuestion" novalidate ng-submit="vm.formQuestion.$valid && vm.saveQuestion()">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="input-title">Questions</span>
+                    <input type="text" class="form-control" ng-model="vm.inputQuestion" ng-required="true" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="input-title">Answer</span>
+                    <textarea type="text" class="form-control" id="txtAnswer" ng-model="vm.inputAnswer" ng-required="true" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

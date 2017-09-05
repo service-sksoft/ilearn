@@ -1,0 +1,182 @@
+﻿<link href="/css/jquery.cleditor.css" rel="stylesheet" />
+<script src="/js/jquery.cleditor.min.js"></script>
+
+
+<div class="topic-container row">
+
+    <div class="col-sm-12">
+
+        <div class="alert alert-info" style="margin-bottom:10px;">
+            <b>Interview</b>
+
+            <select ng-options="quesType.ID as quesType.Name for quesType in vm.quesTypes" ng-model="vm.quesType" ng-change="vm.loadQuestion()"></select>
+            <a href="javascript:void(0)" ng-if="vm.quesType===1" class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#myModal" ng-click="vm.editQuestion(0)"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Add New</a>
+            <a href="javascript:void(0)" ng-if="vm.quesType===2" class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#myModal" ng-click="vm.editResource(-1)"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Add New</a>
+
+            <a href="javascript:void(0)" class="btn btn-xs btn-link pull-right" style="margin-right:5px;" ui-sref="edit-topic"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+
+        </div>
+
+
+        <div ng-if="vm.quesType===1">
+
+            <table class="table table-condensed table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Question</th>
+                    <th style="width:50px">Edit</th>
+                    <th style="width:50px">Delete</th>
+                </tr>
+                <tr ng-repeat="ques in vm.questionList">
+                    <td>{{$index+1}}</td>
+                    <td>{{ques.ID}}</td>
+                    <td>{{ques.Question}}</td>
+                    <td><a href="javascript:void(0)" ng-click="vm.editQuestion(ques.ID)" data-toggle="modal" data-target="#myModal">Edit</a></td>
+                    <td><a href="javascript:void(0)" ng-click="vm.deleteQuestion(ques.ID)">Delete</a></td>
+                </tr>
+            </table>
+
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content modal-lg">
+                        <form name="vm.formQuestion" novalidate ng-submit="vm.formQuestion.$valid && vm.saveQuestion()">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Edit Question ({{vm.question.ID}})</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span class="input-title">Topic</span>
+                                        <input type="text" class="form-control input-ctrl" ng-model="vm.question.Language" disabled="disabled" />
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <span class="input-title">Type</span>
+                                        <select class="form-control input-ctrl" ng-model="vm.question.Type" ng-options="type.ID as type.Name for type in vm.QuestionType">
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="input-title">Question</span>
+                                        <input type="text" class="form-control input-ctrl" ng-model="vm.question.Question" ng-required="true" />
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="input-title">Answer</span>
+                                        <textarea class="form-control" id="txtAnswer" rows="6" ng-model="vm.question.AnswerString" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <span class="text-muted text-success pull-left text-sm" ng-if="vm.question.Reviewed===1">Reviewed</span>
+                                <button type="submit" class="btn btn-xs btn-primary btn-sm">Save</button>
+                                <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="vm.quesType===2">
+
+
+            <table class="table table-condensed table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>URL</th>
+                    <th style="width:50px">Edit</th>
+                    <th style="width:50px">Delete</th>
+                </tr>
+                <tr ng-repeat="er in vm.externalResourceList">
+                    <td>{{$index+1}}</td>
+                    <td>{{er.ID}}</td>
+                    <td>{{er.Title}}</td>
+                    <td>{{er.URL}}</td>
+                    <td><a href="javascript:void(0)" ng-click="vm.editResource($index)" data-toggle="modal" data-target="#myModal">Edit</a></td>
+                    <td><a href="javascript:void(0)" ng-click="vm.deleteExternalResource(er.ID)">Delete</a></td>
+                </tr>
+
+                <tr ng-if="vm.externalResourceList.length===0">
+                    <td colspan="6" class="text-center text-sm">No external resources found</td>
+                </tr>
+
+            </table>
+
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content modal-lg">
+                        <form name="vm.formQuestion" novalidate ng-submit="vm.formQuestion.$valid && vm.saveExternalResource()">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Edit Question ({{vm.er.ID}})</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span class="input-title">Topic</span>
+                                        <input type="text" class="form-control input-ctrl" ng-model="vm.er.TopicID" disabled="disabled" />
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <span class="input-title">Type</span>
+                                        <select ng-options="erType.ID as erType.Name for erType in vm.erTypes" class="form-control input-ctrl" ng-model="vm.er.Type" ng-required="true">
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="input-title">Title</span>
+                                        <input type="text" class="form-control input-ctrl" ng-model="vm.er.Title" ng-required="true" />
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="input-title">URL</span>
+                                        <input type="text" class="form-control input-ctrl" ng-model="vm.er.URL" ng-required="true" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="input-title">Description</span>
+                                        <textarea class="form-control input-ctrl" rows="3" ng-model="vm.er.Description" ng-required="true" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-xs btn-primary btn-sm">Save</button>
+                                <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

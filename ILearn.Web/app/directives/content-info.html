@@ -1,0 +1,39 @@
+﻿<div class="row">
+    <div class="col-sm-7 col-xs-12">
+        <div class="content-intro-box">
+            <h3>{{topic.DisplayName}}</h3>
+            <p>{{topic.Description}}</p>
+            <img ng-src="{{BACK_END + topic.Image}}" class="topic-img-small" />
+        </div>
+    </div>
+
+    <div class="col-sm-5 col-xs-12">
+        <div class="qlink" ng-class="{'qlink-active' : currentpage =='interview'}">
+            <a ui-sref="interview({url : topic.URL, page : 1})">
+                <div class="qcount">{{topic.InterviewCount}}</div>
+                <div class="qtext">Interview Choice Questions</div>
+            </a>
+        </div>
+
+        <div class="qlink" ng-class="{'qlink-active' : currentpage =='multiple-choice'}">
+            <a ui-sref="multiple-choice({url : topic.URL, page : 1})">
+                <div class="qcount">{{topic.MultipleChoiceCount}}</div>
+                <div class="qtext">Multiple Choice Questions</div>
+            </a>
+        </div>
+
+        <div class="qlink" ng-class="{'qlink-active' : currentpage =='external-resource'}">
+            <a ui-sref="external-resource({url : topic.URL, page : 1})">
+                <div class="qcount">{{topic.ExternalResourceCount}}</div>
+                <div class="qtext">External Resources</div>
+            </a>
+        </div>
+
+        <div class="qlink" ng-class="{'qlink-active' : currentpage =='tutorial'}">
+            <a ui-sref="tutorial({url : topic.URL, page : 1})">
+                <div class="qcount">{{topic.TutorialCount}}</div>
+                <div class="qtext">Tutorials</div>
+            </a>
+        </div>
+    </div>
+</div>

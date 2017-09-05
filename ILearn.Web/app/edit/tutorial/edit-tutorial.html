@@ -1,0 +1,236 @@
+﻿<link href="/css/jquery.cleditor.css" rel="stylesheet" />
+<script src="/js/jquery.cleditor.min.js"></script>
+
+<style>
+    .table a { display: block !important; }
+</style>
+<div class="topic-container row">
+    <div class="col-sm-12">
+        <div class="alert alert-info" style="margin-bottom:10px;">
+            <a href="javascript:void(0)" ui-sref="edit-topic" class="pull-right"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+            <b>Tutorial</b>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <h4>
+            Title
+            <a href="javascript:void(0)" ng-click="vm.editTutorialTitle(0)" data-toggle="modal" data-target="#titleModal" class="btn btn-xs btn-info pull-right"> <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Add New</a>
+        </h4>
+
+        <table class="table table-condensed table-bordered">
+            <tr>
+                <th style="width:20px">Seq</th>
+                <th>Title</th>
+                <th style="width:20px" title="edit"><span class="glyphicon glyphicon-pencil"></span></th>
+                <th style="width:20px" title="delete" class="text-danger"><span class="glyphicon glyphicon-trash"></span></th>
+            </tr>
+
+            <tr ng-repeat="tt in vm.tutorialTitleList" ng-class="{'selected-row' : tt.ID===vm.selectedTitle.ID}">
+                <td>{{tt.Seq}}</td>
+                <td><a href="javascript:void(0)" ng-click="vm.loadTutorialSubtitles(tt.ID)">{{tt.Title}}</a></td>
+                <td><a href="javascript:void(0)" ng-click="vm.editTutorialTitle(tt.ID)" data-toggle="modal" data-target="#titleModal"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a href="javascript:void(0)" class="text-danger" ng-click="vm.deleteTutorialTitle(tt.ID)"><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+
+            <tr ng-if="vm.tutorialTitleList.length===0">
+                <td colspan="4" class="text-center text-sm">No titles found</td>
+            </tr>
+
+        </table>
+
+        <div id="titleModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content modal-md">
+                    <form name="vm.titleFormQuestion" novalidate ng-submit="vm.titleFormQuestion.$valid && vm.saveTutorialTitle()">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Title ({{vm.tt.ID}})</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="input-title">Topic</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.tt.TopicID" disabled="disabled" />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <span class="input-title">Seq</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.tt.Seq" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="input-title">Title</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.tt.Title" ng-required="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-xs btn-primary btn-sm">Save</button>
+                            <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3" ng-if="vm.selectedTitle">
+        <h4>
+            Sub Title
+            <a href="javascript:void(0)" ng-click="vm.editTutorialSubtitle(0)" data-toggle="modal" data-target="#subtitleModal" class="btn btn-xs btn-info pull-right"> <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Add New</a>
+        </h4>
+        <table class="table table-condensed table-bordered">
+            <tr>
+                <th style="width:20px">Seq</th>
+                <th>Title</th>
+                <th style="width:20px" title="edit"><span class="glyphicon glyphicon-pencil"></span></th>
+                <th style="width:20px" title="delete" class="text-danger"><span class="glyphicon glyphicon-trash"></span></th>
+            </tr>
+
+            <tr ng-repeat="tt in vm.tutorialSubtitleList" ng-class="{'selected-row' : tt.ID===vm.selectedSubtitle.ID}">
+                <td>{{tt.Seq}}</td>
+                <td><a href="javascript:void(0)" ng-click="vm.loadTutorialContent(tt.ID)">{{tt.Title}}</a></td>
+                <td><a href="javascript:void(0)" ng-click="vm.editTutorialSubtitle(tt.ID)" data-toggle="modal" data-target="#subtitleModal"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a href="javascript:void(0)" class="text-danger" ng-click="vm.deleteTutorialSubtitle(tt.ID)"><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+
+            <tr ng-if="vm.tutorialSubtitleList.length===0">
+                <td colspan="4" class="text-center text-sm">No titles found</td>
+            </tr>
+
+        </table>
+
+        <div id="subtitleModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content modal-md">
+                    <form name="vm.subtitleFormQuestion" novalidate ng-submit="vm.subtitleFormQuestion.$valid && vm.saveTutorialSubtitle()">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Title ({{vm.tst.ID}})</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="input-title">Parent ID</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.tst.ParentID" disabled="disabled" />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <span class="input-title">Seq</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.tst.Seq" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="input-title">Title</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.tst.Title" ng-required="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-xs btn-primary btn-sm">Save</button>
+                            <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6" ng-if="vm.selectedSubtitle">
+        <h4>
+            Content
+            <a href="javascript:void(0)" ng-click="vm.editTutorialContent(0)" data-toggle="modal" data-target="#contentModal" class="btn btn-xs btn-info pull-right"> <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Add New</a>
+        </h4>
+        <table class="table table-condensed table-bordered">
+            <tr>
+                <th style="width:20px">Seq</th>
+                <th>Title</th>
+                <th style="width:20px" title="edit"><span class="glyphicon glyphicon-pencil"></span></th>
+                <th style="width:20px" title="delete" class="text-danger"><span class="glyphicon glyphicon-trash"></span></th>
+            </tr>
+
+            <tr ng-repeat="tt in vm.tutorialContentList">
+                <td>{{tt.Seq}}</td>
+                <td>{{tt.Title}}</td>
+                <td><a href="javascript:void(0)" ng-click="vm.editTutorialContent(tt.ID)" data-toggle="modal" data-target="#contentModal"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a href="javascript:void(0)" class="text-danger" ng-click="vm.deleteTutorialContent(tt.ID)"><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+
+            <tr ng-if="vm.tutorialContentList.length===0">
+                <td colspan="4" class="text-center text-sm">No titles found</td>
+            </tr>
+
+        </table>
+
+        <div id="contentModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content modal-lg">
+                    <form name="vm.contentFormQuestion" novalidate ng-submit="vm.contentFormQuestion.$valid && vm.saveTutorialContent()">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Title ({{vm.tc.ID}})</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <span class="input-title">Parent ID</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.tc.ParentID" disabled="disabled" />
+                                </div>
+
+                                <div class="col-md-3">
+                                    <span class="input-title">Seq</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.tc.Seq" />
+                                </div>
+
+                                <div class="col-md-3">
+                                    <span class="input-title">Type</span>
+                                    <select class="form-control input-ctrl" ng-change="vm.handleContentTypeChange()" ng-options="ct.ID as ct.Name for ct in vm.tutorialContentTypes" ng-model="vm.tc.Type" ng-required="true">
+                                        <option value="" ng-if="">Select</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="input-title">Title</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.tc.Title" ng-required="true" />
+                                </div>
+                            </div>
+
+                            <div class="row" ng-if="vm.tc.Type==1">
+                                <div class="col-md-12">
+                                    <span class="input-title">Description</span>
+                                    <textarea class="form-control" id="txtTutorialDescription" rows="6" ng-model="vm.tc.Description" />
+                                </div>
+                            </div>
+                        
+                            <div class="row" ng-if="vm.tc.Type==2">
+                                <div class="col-md-12">
+                                    <span class="input-title">Description</span>
+                                    <textarea class="form-control" id="txtTutorialCode" rows="6" ng-model="vm.tc.Description" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-xs btn-primary btn-sm">Save</button>
+                            <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

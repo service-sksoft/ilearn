@@ -1,0 +1,100 @@
+﻿<style type="text/css">
+    .banner-img { width: 100%; height: 340px; margin-top: 2px; }
+    .wrap { max-width: 1280px; width: 99%; margin: auto; position: relative; }
+    .wrap-a { position: absolute; right: 0; top: 0; font-weight: 400; font-size: 14px; text-decoration: none; text-shadow: 0px 1px 5px rgba(255, 255, 255, 0.4); height: 65px; width: 110px; background-color: #fff; text-align: center; padding: 10px; border-radius: 0 0 2px 2px; border-top: 2px solid #efebeb; }
+    .home-search { max-width: 1140px; width: 90%; background: rgba(51,47,47,.7); padding: 30px 20px 30px 20px; z-index: 101; border-radius: 2px; margin: auto; }
+    .topic-srch { position: relative; bottom: 230px; left: 0; right: 0; margin: auto; }
+    .home-search-title { color: #e4e4e4; margin-bottom: 7px; font-size: 13px; font-style: italic; }
+    .topic-box { background-color: #f1f1f1; padding: 15px 10px 10px 10px; border-radius: 4px; margin-top: -120px; }
+    /*.divgrp { padding: 10px; background-color: white; height: 180px; margin-bottom: 20px; }
+    .divgrp:hover { box-shadow: 5px 6px 10px #888883; padding: 35px; }*/
+
+    .divgrp { padding: 5px; box-shadow: 1px 1px 7px #bfbfb0; background-color: white; margin-bottom: 5px; height: 75px; cursor: pointer; }
+    .divgrp:hover .divgrp-internal { display: block; display: block; -webkit-animation: fadeIn 1s; animation: fadeIn 1s; }
+
+    @-webkit-keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .divgrp-internal { display: none; position: absolute; background-color: rgba(56, 52, 52, 0.52); height: 75px; width: 94%; margin-top: -5px; margin-left: 8px; margin-right: -5px; z-index: 9999999; }
+    .link { border: 1px solid #e2e2e2; padding: 5px 5px 5px 5px; border-radius: 4px; margin-bottom: 10px; display: none; }
+
+    .topic-inside { margin-top: 5px; margin-left: 11px; }
+    .topic-inside-link { background-color: white; border-radius: 4px; height: 64px; padding: 11px 3px 3px 3px; text-align: center; opacity: .9; }
+    .topic-inside-interview { background-color: #255bbd; color: white; }
+    .topic-inside-tutorial { background-color: #fdff80; color: #7d6d6d; }
+    .topic-img { width: 100%; height: 67%; margin-top: 12px; margin-left: 8px; }
+    .topic-content { margin-top: 17px; }
+    .home-topic-name { font-size: 11px; color: #8f9498 !important; }
+    .home-ques-count { font-size: 11.4px; color: #c34146 !important; display: block; font-weight: bold; }
+    .home-banner { margin-top: -2px; }
+</style>
+<div class="home-banner">
+    <div class="wrap">
+        <a class="wrap-a">Test Link</a>
+    </div>
+    <img src="images/learning-banner-2.jpg" class="banner-img" />
+    <div class="home-search topic-srch">
+        <div class="home-search-title">Search courses, topic, interview questions....</div>
+        <input type="text" class="form-control" placeholder="search" />
+    </div>
+</div>
+
+<div class="topic-box row">
+    <div ng-repeat="topic in vm.topicList">
+        <div class='col-xs-12 col-lg-4'>
+            <div class="divgrp">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <img ng-src="{{vm.BACK_END + topic.Image}}" class="topic-img" />
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="topic-content">
+                            <div class="home-topic-name">{{topic.Description}}</div>
+                        </div>
+                    </div>
+
+                    <div class="divgrp-internal">
+                        <div class="topic-inside">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="javscript:void(0)" ui-sref="interview({url : topic.URL, page : 1})">
+                                        <div class="topic-inside-link topic-inside-interview">
+
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            <div>Interview</div>
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="javscript:void(0)" ui-sref="tutorial({url : topic.URL, page : 1})">
+                                        <div class="topic-inside-link topic-inside-tutorial ">
+                                            <span class="glyphicon glyphicon-file"></span>
+                                            <div>Tutorial</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!--<a ui-sref='topic({url : topic.URL, page : 1})' alt='Interview questions of {{tp.Name}}'>
+
+            </a>-->
+        </div>
+    </div>
+</div>
+
+
+<!--<script src="/learningzone/Js/mycloud.js?v=1.0"></script>-->

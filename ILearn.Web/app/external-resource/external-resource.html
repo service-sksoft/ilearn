@@ -1,0 +1,51 @@
+﻿<div class="content-info">
+    <content-info topic="vm.selectedTopic" currentpage="external-resource"></content-info>
+</div>
+
+<style>
+    .er-list { width: 100%; padding: 12px 10px 20px 10px; background-color: #f7f7f7; min-height: 100px; }
+    .er-list:hover { box-shadow: 5px 6px 10px #888883; }
+    .er-title {  }
+    .er-img { position: absolute; height: 56px; right: 17px; top: 3px; opacity: 0.5; width: 60px; }
+    .er-desc { color: #808080; font-weight: normal; font-size: 12px; margin-top: 7px; }
+</style>
+<div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="leftNav">
+            <topic-list topics="vm.topicList" selected-topic="vm.selectedTopic.ID" type="external-resource"></topic-list>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-9 col-xs-12">
+        <div class="answerbox content-body" ng-if="vm.questionList.ques.length>0">
+            <div id="divData" class="divData">
+                <div class="row">
+                    <div class='col-sm-6 col-xs-12' ng-repeat="q in vm.questionList.ques">
+                        <a href="{{q.url}}" target="_blank" title="Open in new window">
+                            <div class='er-list'>
+                                <div class='ques' itemprop='keywords'>
+
+                                    <span class="er-title" >
+                                        <span class="glyphicon glyphicon-new-window"></span>
+                                        <span class="er-title">{{q.title}}</span>
+                                    </span>
+
+                                    <div class="er-desc">{{q.desc}}</div>
+
+                                </div>
+                                <img ng-src="{{vm.contentImage(q.type)}}" class="er-img" />
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <dir-pagination pagetype="external-resource" topicurl="{{vm.url}}" currentpage="{{vm.questionList.currentpage}}" total="{{vm.questionList.total}}" perpage="vm.questionList.perpage" ng-if="vm.questionList.total > vm.questionList.perpage"></dir-pagination>
+
+    </div>
+    <div class="no-data text-sm" ng-if="vm.questionList.ques.length===0">No questions added in this section. We are working on this topic and will update soon...</div>
+</div>
+</div>

@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3879B1DC-3EF9-48C5-B731-08CBA4CD2DB6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ILearn.Web</RootNamespace>
+    <AssemblyName>ILearn.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\tutorial\tutorial.html" />
+    <Content Include="app\tutorial\TutorialController.js" />
+    <Content Include="app\external-resource\external-resource.html" />
+    <Content Include="app\external-resource\ExternalResourceController.js" />
+    <Content Include="app\multiple-choice\multiple-choice.html" />
+    <Content Include="app\multiple-choice\MultipleChoiceController.js" />
+    <Content Include="app\interview-question\interview-question.html" />
+    <Content Include="app\interview-question\InterviewQuestionController.js" />
+    <Content Include="app\directives\content-info.html" />
+    <Content Include="app\directives\topicList.html" />
+    <Content Include="app\directives\dir_Pagination.html" />
+    <Content Include="app\directives\utility.directives.js" />
+    <Content Include="app\edit\edit-topic.html" />
+    <Content Include="app\edit\multiple-choice\edit-multiple-choice.html" />
+    <Content Include="app\edit\multiple-choice\EditMultipleChoiceController.js" />
+    <Content Include="app\edit\tutorial\edit-tutorial.html" />
+    <Content Include="app\edit\edit-subjective.html" />
+    <Content Include="app\edit\edit.html" />
+    <Content Include="app\edit\EditController.js" />
+    <Content Include="app\edit\interview\edit-interview.html" />
+    <Content Include="app\edit\interview\EditInterviewController.js" />
+    <Content Include="app\edit\tutorial\EditTutorialController.js" />
+    <Content Include="app\home\home.html" />
+    <Content Include="app\home\HomeController.js" />
+    <Content Include="app\home\item.service.js" />
+    <Content Include="app\layout\dir-menu.view.html" />
+    <Content Include="app\layout\header.controller.js" />
+    <Content Include="app\layout\header.view.html" />
+    <Content Include="app\quiz\quiz.html" />
+    <Content Include="app\quiz\QuizController.js" />
+    <Content Include="app\services\app.urls.js" />
+    <Content Include="app\services\cacheFactory.js" />
+    <Content Include="app\services\common.service.js" />
+    <Content Include="app\services\lookup.service.js" />
+    <Content Include="app\services\utility.common.js" />
+    <Content Include="bootstrap\css\all_cs.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\css\cmn.css" />
+    <Content Include="bootstrap\css\images\ajax-loader.gif" />
+    <Content Include="bootstrap\css\images\icons-18-black.png" />
+    <Content Include="bootstrap\css\images\icons-18-white.png" />
+    <Content Include="bootstrap\css\images\icons-36-black.png" />
+    <Content Include="bootstrap\css\images\icons-36-white.png" />
+    <Content Include="bootstrap\css\images\social-media.png" />
+    <Content Include="bootstrap\css\mobcmn.css" />
+    <Content Include="bootstrap\css\mob_cs.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\img\bs-docs-masthead-pattern.png" />
+    <Content Include="bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="bootstrap\js\bootstrap-typeahead.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="css\bootstrap-combined.min.css" />
+    <Content Include="css\datetimepicker.css" />
+    <Content Include="css\app.css" />
+    <Content Include="css\images\ajax-loader.gif" />
+    <Content Include="css\jquery.cleditor.css" />
+    <Content Include="css\jquery.mobile-1.4.2.min.css" />
+    <Content Include="css\prism.css" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\document.png" />
+    <Content Include="images\FancyBox\buttons.gif" />
+    <Content Include="images\FancyBox\toolbar.gif" />
+    <Content Include="images\icon.gif" />
+    <Content Include="images\icon.ico" />
+    <Content Include="images\icons-18-black.png" />
+    <Content Include="images\icons-18-white.png" />
+    <Content Include="images\icons-36-black.png" />
+    <Content Include="images\icons-36-white.png" />
+    <Content Include="images\learning-banner-1.jpg" />
+    <Content Include="images\learning-banner-2.jpg" />
+    <Content Include="images\learning-banner-3.jpg" />
+    <Content Include="images\learning-banner-4.jpg" />
+    <Content Include="images\learningzone_logo.png" />
+    <Content Include="images\learningzone_logo_mob_1.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\pdf.png" />
+    <Content Include="images\photo.png" />
+    <Content Include="images\processing1.gif" />
+    <Content Include="images\texture-page.jpg" />
+    <Content Include="images\topics\topic_1.jpg" />
+    <Content Include="images\topics\topic_1.png" />
+    <Content Include="images\topics\topic_2.jpg" />
+    <Content Include="images\topics\topic_2.png" />
+    <Content Include="images\topics\topic_3.png" />
+    <Content Include="images\topics\topic_4.png" />
+    <Content Include="images\topics\topic_5.png" />
+    <Content Include="images\topics\topic_6.png" />
+    <Content Include="images\topics\topic_7.png" />
+    <Content Include="images\topics\topic_8.png" />
+    <Content Include="images\top_shadow.png" />
+    <Content Include="images\video.png" />
+    <Content Include="images\wa.jpg" />
+    <Content Include="index.html" />
+    <Content Include="js\angular-sanitize.js" />
+    <Content Include="js\angular-ui-router.min.js" />
+    <Content Include="js\angular.min.js" />
+    <Content Include="js\angularjs-toaster\toaster.min.css" />
+    <Content Include="js\angularjs-toaster\toaster.min.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\CmnJSAll.js" />
+    <Content Include="js\CommonUI.js" />
+    <Content Include="js\Date.js" />
+    <Content Include="js\datetimepicker.js" />
+    <Content Include="js\jquery.cleditor.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.mobile-1.4.2.min.js" />
+    <Content Include="js\Lines.js" />
+    <Content Include="css\loading-bar.css" />
+    <Content Include="js\loading-bar.js" />
+    <Content Include="js\lodash.core.js" />
+    <Content Include="js\ocLazyLoad.js" />
+    <Content Include="js\ocLazyLoad.require.js" />
+    <Content Include="js\prism.js" />
+    <Content Include="js\require.js" />
+    <Content Include="js\stationlist.js" />
+    <Content Include="packages.config" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ILearn.Data\ILearn.Data.csproj">
+      <Project>{b3bd6f41-30f2-47b7-bd02-bbec31064f9f}</Project>
+      <Name>ILearn.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ILearn.Entities\ILearn.Entities.csproj">
+      <Project>{ff472ad1-bf04-42f2-945c-7ef87c680211}</Project>
+      <Name>ILearn.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ILearn.Services\ILearn.Services.csproj">
+      <Project>{661cb342-c2d8-4486-bccb-c49edced4e5f}</Project>
+      <Name>ILearn.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ILearn.WebApi\ILearn.WebApi.csproj">
+      <Project>{d99dd5ba-d87b-481c-91ae-b63026aa70fb}</Project>
+      <Name>ILearn.WebApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59289</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5555/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:5555/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

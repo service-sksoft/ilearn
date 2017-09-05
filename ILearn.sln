@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILearn.Entities", "ILearn.Entities\ILearn.Entities.csproj", "{FF472AD1-BF04-42F2-945C-7EF87C680211}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILearn.Data", "ILearn.Data\ILearn.Data.csproj", "{B3BD6F41-30F2-47B7-BD02-BBEC31064F9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILearn.Services", "ILearn.Services\ILearn.Services.csproj", "{661CB342-C2D8-4486-BCCB-C49EDCED4E5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILearn.WebApi", "ILearn.WebApi\ILearn.WebApi.csproj", "{D99DD5BA-D87B-481C-91AE-B63026AA70FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILearn.Web", "ILearn.Web\ILearn.Web.csproj", "{3879B1DC-3EF9-48C5-B731-08CBA4CD2DB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C634524A-CD6D-42BC-AC0B-B5E952ACC163}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D6EF72E7-2637-44E0-B7B8-C418CD03CA88}"
+	ProjectSection(SolutionItems) = preProject
+		JSLintOptions.xml = JSLintOptions.xml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(JSLint) = preSolution
+		SolutionConfigurationLocation = JSLintOptions.xml
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF472AD1-BF04-42F2-945C-7EF87C680211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF472AD1-BF04-42F2-945C-7EF87C680211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF472AD1-BF04-42F2-945C-7EF87C680211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF472AD1-BF04-42F2-945C-7EF87C680211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3BD6F41-30F2-47B7-BD02-BBEC31064F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3BD6F41-30F2-47B7-BD02-BBEC31064F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3BD6F41-30F2-47B7-BD02-BBEC31064F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3BD6F41-30F2-47B7-BD02-BBEC31064F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{661CB342-C2D8-4486-BCCB-C49EDCED4E5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661CB342-C2D8-4486-BCCB-C49EDCED4E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661CB342-C2D8-4486-BCCB-C49EDCED4E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661CB342-C2D8-4486-BCCB-C49EDCED4E5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D99DD5BA-D87B-481C-91AE-B63026AA70FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D99DD5BA-D87B-481C-91AE-B63026AA70FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D99DD5BA-D87B-481C-91AE-B63026AA70FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D99DD5BA-D87B-481C-91AE-B63026AA70FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3879B1DC-3EF9-48C5-B731-08CBA4CD2DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3879B1DC-3EF9-48C5-B731-08CBA4CD2DB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3879B1DC-3EF9-48C5-B731-08CBA4CD2DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3879B1DC-3EF9-48C5-B731-08CBA4CD2DB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

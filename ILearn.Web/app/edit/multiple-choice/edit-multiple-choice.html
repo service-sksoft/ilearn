@@ -1,0 +1,86 @@
+﻿<style>
+    .input-row { margin-bottom: 5px; }
+    .small-td { width: 15px; }
+</style>
+<div class="topic-container row">
+    <div class="col-sm-12">
+        <div class="alert alert-info" style="margin-bottom:10px;">
+            <b>Multiple Choice</b>
+            <a href="javascript:void(0)" class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#myModal" ng-click="vm.editMultipleChoice(0)"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Add New</a>
+            <a href="javascript:void(0)" class="btn btn-xs btn-link pull-right" style="margin-right:5px;" ui-sref="edit-topic"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+        </div>
+
+        <table class="table table-condensed table-bordered">
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>Question</th>
+                <th style="width:50px">Edit</th>
+                <th style="width:50px">Delete</th>
+            </tr>
+            <tr ng-repeat="mc in vm.multipleChoiceList">
+                <td>{{$index+1}}</td>
+                <td>{{mc.ID}}</td>
+                <td>{{mc.Question}}</td>
+                <td><a href="javascript:void(0)" ng-click="vm.editMultipleChoice(mc.ID)" data-toggle="modal" data-target="#myModal">Edit</a></td>
+                <td><a href="javascript:void(0)" ng-click="vm.deleteMultipleChoice(mc.ID)">Delete</a></td>
+            </tr>
+
+            <tr ng-if="vm.multipleChoiceList.length===0">
+                <td colspan="6" class="text-center text-sm">No multiple choice questions found</td>
+            </tr>
+        </table>
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content modal-lg">
+                    <form name="vm.formQuestion" novalidate ng-submit="vm.formQuestion.$valid && vm.saveMultipleChoice()">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Question ({{vm.mc.ID}}), Topic : {{vm.mc.Language}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="input-title">Question</span>
+                                    <input type="text" class="form-control input-ctrl" ng-model="vm.mc.Question" ng-required="true" />
+                                </div>
+                            </div>
+
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <span class="input-title">Options</span>
+                                    <table style="width:100%">
+                                        <tr ng-repeat="i in [1,2,3,4,5]">
+                                            <td class="small-td">{{i}}.</td>
+                                            <td><input type="text" class="form-control input-ctrl input-row" ng-model="vm.mc['Option' + i]" ng-required="i<5" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <span class="input-title">Answer</span><br />
+                                    <label class="radio-inline" ng-repeat="i in [1,2,3,4,5]"><input type="radio" ng-checked="vm.mc.Answer===i" ng-click="vm.mc.Answer=i" name="optradio">Option {{i}}</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <span class="text-muted text-success pull-left text-sm" ng-if="vm.question.Reviewed===1">Reviewed</span>
+                            <button type="submit" class="btn btn-xs btn-primary btn-sm">Save</button>
+                            <button type="button" class="btn btn-xs btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

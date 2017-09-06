@@ -3,17 +3,19 @@
     .tutorial-desc { font-size: 12px !important; }
     .tutorial-box { margin-bottom: 20px; }
     .tutorial-content { border: 1px solid #f9f7f7; border-radius: 4px; background-color: #f9f9f9; padding: 10px; }
+
+    .active-tutorial { background-color: #63afa0 !important; border-color: #3da79f !important;color:white!important; }
 </style>
 <div class="content-info">
     <content-info topic="vm.selectedTopic" currentpage="tutorial"></content-info>
 </div>
 
-<div class="row">
+<div class="row tutorial">
     <div class="col-md-3 col-sm-3 col-xs-12">
         <div class="leftNav">
             <div class="list-group" ng-repeat="q in vm.questionList.titles">
                 <a href="#" class="list-group-item disabled">{{q.title}}</a>
-                <a href="javascript:void(0)" ng-class="{'active' : st.id==vm.subtitle}" ui-sref="tutorial({url : vm.selectedTopic.URL, subtitle : st.id })" class="list-group-item" ng-repeat="st in q.subtitles">{{st.title}}</a>
+                <a href="javascript:void(0)" ng-class="{'active-tutorial' : st.id==vm.subtitle}" ui-sref="tutorial({url : vm.selectedTopic.URL, subtitle : st.id })" class="list-group-item" ng-repeat="st in q.subtitles">{{st.title}}</a>
             </div>
 
             <topic-list topics="vm.topicList" selected-topic="vm.selectedTopic.ID" type="tutorial"></topic-list>

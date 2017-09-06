@@ -11,9 +11,8 @@
         var vm = this;
 
         vm.menuRow1 = [
-            { 'label': 'Infonexus', state: 'default' },
-            { 'label': 'Courses', state: 'edit-topic' },
-            { 'label': 'Interview Questions', state: 'default' },
+            { 'label': 'Tutorials', state: 'default' },
+            { 'label': 'Web Tools', state: 'default' }
         ];
 
         vm.showModel = function () {

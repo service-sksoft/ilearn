@@ -52,6 +52,7 @@
             }
 
             if (!vm.subtitle) {
+                vm.tutorialContents=[];
                 return;
             }
 

@@ -34,7 +34,7 @@
         };
 
         common.scrollTop = function () {
-            $("html, body").stop().animate({ scrollTop: 0 }, 500, 'swing', function () { });
+            $("html, body").stop().animate({ scrollTop: 100 }, 500, 'swing', function () { });
         };
 
         common.topic = {

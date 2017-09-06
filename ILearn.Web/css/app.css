@@ -34,6 +34,7 @@ body { font-size: 13px !important; }
     min-height: 500px;*/ background-color: #84cce2; background-color: #34ADFF; background-image: -webkit-linear-gradient(150deg, #34ADFF 35%, #4CBFFF 35%); min-height: 400px; }
 .content-info-box { padding-top: 25px !important; }
 .qlink { background-image: -webkit-linear-gradient(30deg, #3d2584 24%, #ced1d4 25%); height: 45px; margin: 21px 5px 30px 15px; padding: 18px 0px 40px 2px; border-radius: 3px; }
+.qlink a { display: block; }
 .qlink:first-child { margin-top: 35px; }
 .qcount { display: inline-block; font-size: 15px; font-weight: bold; color: white; margin-left: 15px; width: 27%; }
 .qtext { display: inline-block; display: inline-block; color: #887474; font-size: 12.5px; }
@@ -63,6 +64,9 @@ pre { background-color: unset !important; border: none !important; }
     .content-intro-box > h3 { font-size: 30px; }
     .content-intro-box > p { padding: 8px; }
     .tutorial-content { margin-left: 10px; }
+    .answerbox { margin-left: 10px; }
+    .content-intro-box > img { height: 65px; width: 65px; right: 1px; top: -42px; }
+    .no-data { margin-left: 10px; }
 }
 
 @media screen and (max-width: 309px) {
@@ -71,4 +75,9 @@ pre { background-color: unset !important; border: none !important; }
     .content-intro-box > p { padding: 2px; font-size: 11px; }
     .qcount { width: 19%; }
     .tutorial-content { margin-left: 10px; }
+    .answerbox { margin-left: 10px; }
+    .content-intro-box > img { height: 65px; width: 65px; right: 1px; top: -42px; }
+    .no-data { margin-left: 10px; }
+    .qtext { font-size: 11px; }
+    .content-intro-box { padding: 10px 0px 10px 9px; }
 }

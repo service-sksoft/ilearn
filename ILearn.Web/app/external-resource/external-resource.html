@@ -5,7 +5,7 @@
 <style>
     .er-list { width: 100%; padding: 12px 10px 20px 10px; background-color: #f7f7f7; min-height: 100px; }
     .er-list:hover { box-shadow: 5px 6px 10px #888883; }
-    .er-title {  }
+    .er-title { }
     .er-img { position: absolute; height: 56px; right: 17px; top: 3px; opacity: 0.5; width: 60px; }
     .er-desc { color: #808080; font-weight: normal; font-size: 12px; margin-top: 7px; }
 </style>
@@ -24,7 +24,7 @@
                             <div class='er-list'>
                                 <div class='ques' itemprop='keywords'>
 
-                                    <span class="er-title" >
+                                    <span class="er-title">
                                         <span class="glyphicon glyphicon-new-window"></span>
                                         <span class="er-title">{{q.title}}</span>
                                     </span>
@@ -45,7 +45,8 @@
 
         <dir-pagination pagetype="external-resource" topicurl="{{vm.url}}" currentpage="{{vm.questionList.currentpage}}" total="{{vm.questionList.total}}" perpage="vm.questionList.perpage" ng-if="vm.questionList.total > vm.questionList.perpage"></dir-pagination>
 
+        <div class="no-data text-sm" ng-if="vm.questionList.ques.length===0">No questions added in this section. We are working on this topic and will update soon...</div>
+
     </div>
-    <div class="no-data text-sm" ng-if="vm.questionList.ques.length===0">No questions added in this section. We are working on this topic and will update soon...</div>
-</div>
+
 </div>

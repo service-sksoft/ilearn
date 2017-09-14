@@ -99,7 +99,12 @@
                 },
                 deleteTutorialContent: function (ID) {
                     return Util_Common.callWebApi(Url.API_BASE + Url.TUTORIAL_CONTENT + '/deletecontent/' + ID, "POST");
+                },
+                getQuestionsForCarousal: function () {
+                    return Util_Common.callWebApi(Url.API_BASE + Url.QUESTION + '/questionsforcarousal');
                 }
+
+
             };
 
         return common;

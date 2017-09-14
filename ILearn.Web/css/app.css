@@ -15,7 +15,8 @@
 
 /*Content starts*/
 body { font-size: 13px !important; }
-.qt { border: 1px solid rgb(245, 218, 198); border-radius: 4px; margin-bottom: 15px; margin-top: 6px; font-size: 0.9em; color: rgb(114, 107, 107) !important; }
+.qt { border: 1px solid rgb(241, 238, 236); box-shadow: 1px 1px 1px 1px #f3f3f3; margin-bottom: 15px; margin-top: 6px; font-size: 0.9em; color: rgb(114, 107, 107) !important; }
+.qt:hover >  :not(.btn) { background-color: #fbfbfb; }
 .tblQuesList { width: 100%; padding: 10px !important; }
 .tblQuesList tr:nth-child(1) td { padding: 10px; margin-bottom: 1px; }
 .list-group-item { padding: 5px 10px !important; }

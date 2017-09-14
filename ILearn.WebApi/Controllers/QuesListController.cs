@@ -36,6 +36,29 @@
                 GlobalList.Questions = quesListService.GetAll();
             }
 
+        [Route("questionsforcarousal")]
+        [HttpGet]
+        public HttpResponseMessage GetQuestionsForCarousal(HttpRequestMessage request)
+            {
+            return CreateHttpResponse(request, () =>
+            {
+                int type = (int)SubjectiveQuesType.ONELINER;
+                var allQues = GlobalList.Questions.Where(x => x.Type == type).Take(21).ToList();
+
+                if (allQues != null)
+                    {
+                    var result = this.GetQuesListOutputDto(allQues);
+                    response = request.CreateResponse(HttpStatusCode.OK, new { result = result });
+                    }
+                else
+                    {
+                    response = request.CreateErrorResponse(HttpStatusCode.NotFound, "");
+                    }
+
+                return response;
+            });
+            }
+
         [Route("questions/{topicid}/{pageNo}")]
         [HttpGet]
         public HttpResponseMessage Get(HttpRequestMessage request, int topicid, int pageNo)
@@ -43,7 +66,7 @@
             return CreateHttpResponse(request, () =>
             {
                 var allQues = GlobalList.Questions.Where(x => x.Language == topicid).ToList();
-                var quesToReturn = allQues.Skip((pageNo-1) * Cmn.MaxQuestionPerPage).Take(Cmn.MaxQuestionPerPage).ToList();
+                var quesToReturn = allQues.Skip((pageNo - 1) * Cmn.MaxQuestionPerPage).Take(Cmn.MaxQuestionPerPage).ToList();
 
                 if (quesToReturn != null)
                     {

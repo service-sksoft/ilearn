@@ -3,8 +3,8 @@
     angular.module('app')
         .factory('Util_Common', Util_Common);
 
-    Util_Common.$inject = ['$http', 'Url', '$state', '$rootScope', '$q', 'cacheFactory', 'toaster'];
-    function Util_Common($http, Url, $state, $rootScope, $q, cacheFactory, toaster) {
+    Util_Common.$inject = ['$http', 'Url', '$state', '$rootScope', '$q','$sce', 'cacheFactory', 'toaster'];
+    function Util_Common($http, Url, $state, $rootScope, $q, $sce, cacheFactory, toaster) {
         var common = {};
 
         common.topicList = [];
@@ -26,6 +26,7 @@
 
         common.bindCommonFunctions = function (vm, cb) {
             vm.getImageUrl = common.getImageUrl;
+            vm.$sce = $sce;
             vm.API_BASE = Url.API_BASE;
             vm.BACK_END = Url.BACK_END;
             vm.scrollTop = common.scrollTop;

@@ -26,7 +26,7 @@
     .link { border: 1px solid #e2e2e2; padding: 5px 5px 5px 5px; border-radius: 4px; margin-bottom: 10px; display: none; }
 
     .topic-inside { margin-top: 5px; margin-left: 11px; }
-    .topic-inside-link { background-color: white; border-radius: 4px; height: 64px; padding: 11px 3px 3px 3px; text-align: center; opacity: .9; }
+    .topic-inside-link { background-color: white; border-radius: 4px; height: 50px; padding: 5px 3px 3px 3px; text-align: center; opacity: .9; margin-top: 8px; }
     .topic-inside-interview { background-color: #255bbd; color: white; }
     .topic-inside-tutorial { background-color: #fdff80; color: #7d6d6d; }
     .topic-img { width: 100%; height: 67%; margin-top: 12px; margin-left: 8px; }
@@ -45,71 +45,118 @@
         .divgrp-internal { width: 84%; }
     }
 
-  
-    
+    .home-content hr { width: 50%; background-color: #65a2bd; height: 2px; border-radius: 4px; }
+    .home-scroller { height: 100px; background-color: whitesmoke; }
+    .carousel { height: 100px; }
+    .home-slide { background-color: white; border: 1px solid red; }
 
+    .carousel-control.left, .carousel-control.right { width: 30px; }
+    .carousel-content { height: 100px; background-color: white; }
+    .carousel-content-first { margin-left: 5px; padding: 10px 10px 10px 35px; }
+    .carousel-content-second { margin-left: 9px; margin-right: -25px; padding: 10px 10px 10px 15px; }
+    .carousel-content-third { margin-left: 35px; margin-right: -25px; padding: 10px 45px 10px 15px; }
+
+    .item { background-color: #f1f1f1; padding: 8px 8px 8px 8px; }
+    .carousel-content:hover { box-shadow: 1px 1px 7px #bfbfb0; }
+    .carousel-control.left, .carousel-control.right { height: 101px; margin-top: 7px; background-image: linear-gradient(to right,rgb(51, 56, 208) 0,rgb(55, 64, 181) 100%) !important; width: 20px; }
+    .glyphicon-chevron-right, .carousel-control .icon-next { margin-right: -9px !important; padding-left: 10px !important; }
+    .carousel-ques { font-weight: bold; color: #3921b9; margin-bottom: 9px; }
+    .carousel-ans { font-size: 11px!important; color: #a09191; line-height: 1.5em; text-align: justify; }
+
+    .carousel-control > .glyphicon { font-size: 15px; font-weight: normal; margin-top: -5px; }
 </style>
-<div class="home-banner">
-    <div class="wrap">
-        <a class="wrap-a">Test Link</a>
+<div class="home-content">
+    <div class="home-banner">
+        <div class="wrap">
+            <a class="wrap-a">Test Link</a>
+        </div>
+        <img src="images/learning-banner-2.jpg" class="banner-img" />
+        <div class="home-search topic-srch">
+            <div class="home-search-title">Search courses, topic, interview questions....</div>
+            <input type="text" class="form-control" placeholder="search" />
+        </div>
     </div>
-    <img src="images/learning-banner-2.jpg" class="banner-img" />
-    <div class="home-search topic-srch">
-        <div class="home-search-title">Search courses, topic, interview questions....</div>
-        <input type="text" class="form-control" placeholder="search" />
-    </div>
-</div>
 
-<div class="topic-box row">
-    <div ng-repeat="topic in vm.topicList">
-        <div class='col-md-4 col-sm-6 col-xs-12'>
-            <div class="divgrp">
-                <div class="row">
-                    <div class="col-sm-2 col-xs-3">
-                        <img ng-src="{{vm.BACK_END + topic.Image}}" class="topic-img" />
-                    </div>
-                    <div class="col-sm-10 col-xs-9">
-                        <div class="topic-content">
-                            <div class="home-topic-name">{{topic.Description}}</div>
+    <div class="topic-box row">
+        <div ng-repeat="topic in vm.topicList">
+            <div class='col-md-4 col-sm-6 col-xs-12'>
+                <div class="divgrp">
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-3">
+                            <img ng-src="{{vm.BACK_END + topic.Image}}" class="topic-img" />
                         </div>
-                    </div>
+                        <div class="col-sm-10 col-xs-9">
+                            <div class="topic-content">
+                                <div class="home-topic-name">{{topic.Description}}</div>
+                            </div>
+                        </div>
 
-                    <div class="divgrp-internal">
-                        <div class="topic-inside">
-                            <div class="row">
-                                <div class="col-sm-6 col-xs-6">
-                                    <a href="javscript:void(0)" ui-sref="interview({url : topic.URL, page : 1})">
-                                        <div class="topic-inside-link topic-inside-interview">
-                                            <span class="glyphicon glyphicon-user"></span>
-                                            <div>Interview</div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 col-xs-6">
-                                    <a href="javscript:void(0)" ui-sref="tutorial({url : topic.URL, page : 1})">
-                                        <div class="topic-inside-link topic-inside-tutorial ">
-                                            <span class="glyphicon glyphicon-file"></span>
-                                            <div>Tutorial</div>
-                                        </div>
-                                    </a>
+                        <div class="divgrp-internal">
+                            <div class="topic-inside">
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-6">
+                                        <a href="javscript:void(0)" ui-sref="interview({url : topic.URL, page : 1})">
+                                            <div class="topic-inside-link topic-inside-interview">
+                                                <span class="glyphicon glyphicon-user"></span>
+                                                <div>Interview</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6">
+                                        <a href="javscript:void(0)" ui-sref="tutorial({url : topic.URL, page : 1})">
+                                            <div class="topic-inside-link topic-inside-tutorial ">
+                                                <span class="glyphicon glyphicon-file"></span>
+                                                <div>Tutorial</div>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="home-scroller hidden-xs">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
 
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item" ng-class="{'active' : $index==0}" ng-repeat="cq in vm.carousalQuestions">
+                    <div class="row">
+                        <div class="col-sm-4 carousel-content carousel-content-first">
+                            <div class="carousel-ques">{{cq.q1}}</div>
+                            <div class="carousel-ans" ng-bind-html="vm.$sce.trustAsHtml(cq.a1)"></div>
+
+                        </div>
+                        <div class="col-sm-4 carousel-content carousel-content-second">
+                            <div class="carousel-ques">{{cq.q2}}</div>
+                            <div class="carousel-ans" ng-bind-html="vm.$sce.trustAsHtml(cq.a2)"></div>
+                        </div>
+
+                        <div class="col-sm-4 carousel-content carousel-content-third">
+                            <div class="carousel-ques">{{cq.q3}}</div>
+                            <div class="carousel-ans" ng-bind-html="vm.$sce.trustAsHtml(cq.a3)"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!--<a ui-sref='topic({url : topic.URL, page : 1})' alt='Interview questions of {{tp.Name}}'>
-
-            </a>-->
-  </div
-            >
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        >
     </div>
+
 </div>
-
-
-<!--<script src="/learningzone/Js/mycloud.js?v=1.0"></script>-->

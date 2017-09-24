@@ -2,13 +2,6 @@
     <content-info topic="vm.selectedTopic" currentpage="external-resource"></content-info>
 </div>
 
-<style>
-    .er-list { width: 100%; padding: 12px 10px 20px 10px; background-color: #f7f7f7; min-height: 100px; }
-    .er-list:hover { box-shadow: 5px 6px 10px #888883; }
-    .er-title { }
-    .er-img { position: absolute; height: 56px; right: 17px; top: 3px; opacity: 0.5; width: 60px; }
-    .er-desc { color: #808080; font-weight: normal; font-size: 12px; margin-top: 7px; }
-</style>
 <div class="row">
     <div class="col-md-3 col-sm-3 col-xs-12">
         <div class="leftNav">
@@ -19,7 +12,7 @@
         <div class="answerbox content-body" ng-if="vm.questionList.ques.length>0">
             <div id="divData" class="divData">
                 <div class="row">
-                    <div class='col-sm-6 col-xs-12' ng-repeat="q in vm.questionList.ques">
+                    <div class='col-sm-6 col-xs-12 er-box' ng-repeat="q in vm.questionList.ques">
                         <a href="{{q.url}}" target="_blank" title="Open in new window">
                             <div class='er-list'>
                                 <div class='ques' itemprop='keywords'>

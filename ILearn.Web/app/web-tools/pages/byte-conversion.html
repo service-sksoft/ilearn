@@ -1,0 +1,171 @@
+﻿<style>
+    .cal-v-title { font-weight: bold; color: #ce1d1d; }
+    .cal-v-input input[type=text] { font-size: 11.5px; padding: 0px 0px 0px 3px; height: 23px; margin-top: 2px; margin-bottom: 20px; }
+</style>
+<div class="row">
+
+    <div class="col-lg-9 col-sm-8 col-xs-12">
+        <div class="wt-content-title">Byte</div>
+        <div class="wt-content-desc">
+            Byte is the basic unit of digital information transmission and storage. If we talk about smallest unit, it is <b>bit</b>.
+            1 byte consists of 8 bits. One byte can store one character, e.g. 'A' or 'x' or '$'
+            It is one of the smallest units of memory in computer technology, as well as one of the most basic data measurement units in programming.
+            The earliest computers were made with the processor supporting 1 byte commands, because in 1 byte you can send 256 commands.
+        </div>
+
+        <div class="wt-content-sep"></div>
+
+        <div class="wt-content-title">KiloByte (KB)</div>
+        <div class="wt-content-desc">
+            KB is the successor unit of byte. 1KB consists of 1028 Bytes.
+        </div>
+
+        <div class="wt-content-sep"></div>
+
+
+        <div class="wt-content-title">MegaByte (MB)</div>
+        <div class="wt-content-desc">
+            KB is the successor unit of kilobyte. 1MB consists of 1028 KBs.
+        </div>
+
+        <div class="wt-content-sep"></div>
+
+
+        <div class="wt-content-title">Other Successors</div>
+        <div class="wt-content-desc">
+            <table class="table table-condensed table-bordered">
+                <tr>
+                    <th>Unit</th>
+                    <th>Value</th>
+                </tr>
+
+                <tr>
+                    <td>1 megabyte (MB)</td>
+                    <td>1024 KB</td>
+                </tr>
+                <tr>
+                    <td>1 gigabyte (GB)</td>
+                    <td>1024 MB</td>
+                </tr>
+                <tr>
+                    <td>1 terabyte (TB)</td>
+                    <td>1024 GB</td>
+                </tr>
+                <tr>
+                    <td>1 petabyte (PB)</td>
+                    <td>1024 TB</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="wt-content-sep"></div>
+
+
+        <div class="wt-content-title">Short Summary</div>
+        <div class="wt-content-desc">
+            <table class="table table-condensed table-bordered">
+                <tr>
+                    <th>Unit</th>
+                    <th>Value</th>
+                    <th>Value in bytes</th>
+                </tr>
+
+                <tr>
+                    <td>1 Kilobyte (KB)</td>
+                    <td>-</td>
+                    <td>1,024</td>
+                </tr>
+                <tr>
+                    <td>1 Megabyte (MB)</td>
+                    <td>1024 KB</td>
+                    <td>1,048,576</td>
+                </tr>
+                <tr>
+                    <td>1 Gigabyte (GB)</td>
+                    <td>1024 MB</td>
+                    <td>1,073,741,824</td>
+                </tr>
+                <tr>
+                    <td>1 Terabyte (TB)</td>
+                    <td>1024 GB</td>
+                    <td>1,099,511,627,776</td>
+                </tr>
+                <tr>
+                    <td>1 Petabyte (PB)</td>
+                    <td>1024 TB</td>
+                    <td>1,125,899,906,842,624</td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="wt-content-sep"></div>
+
+
+        <div class="wt-content-title">Lets test now</div>
+        <div class="wt-content-desc" ng-init="vm.bytes= vm.bytes||1024; vm.reCalculateBytes('byte')">
+
+            <div class="row">
+
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                    <div class="cal-v-title">Bytes</div>
+                    <div class="cal-v-input"><input type="text" placeholder="bytes" ng-model="vm.bytes" ng-change="vm.reCalculateBytes('byte')" class="form-control" /></div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                    <div class="cal-v-title">Kilobytes (KB)</div>
+                    <div class="cal-v-input"><input type="text" placeholder="kilobytes" ng-model="vm.kiloBytes" ng-change="vm.reCalculateBytes('kb')" class="form-control" /></div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                    <div class="cal-v-title">Megabytes (MB)</div>
+                    <div class="cal-v-input"><input type="text" placeholder="megabytes" ng-model="vm.megaBytes" ng-change="vm.reCalculateBytes('mb')" class="form-control" /></div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                    <div class="cal-v-title">Gigabytes (GB)</div>
+                    <div class="cal-v-input"><input type="text" placeholder="gigabytes" ng-model="vm.gigaBytes" ng-change="vm.reCalculateBytes('gb')" class="form-control" /></div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                    <div class="cal-v-title">Terabytes (TB)</div>
+                    <div class="cal-v-input"><input type="text" placeholder="terabytes" ng-model="vm.teraBytes" ng-change="vm.reCalculateBytes('tb')" class="form-control" /></div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                    <div class="cal-v-title">Petabytes (PB)</div>
+                    <div class="cal-v-input"><input type="text" placeholder="petabytes" ng-model="vm.petaBytes" ng-change="vm.reCalculateBytes('pb')" class="form-control" /></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wt-content-sep"></div>
+        <div class="wt-content-sep"></div>
+
+    </div>
+
+    <div class="col-lg-3 col-sm-4 col-xs-12">
+        <div class="wt-content-title">Megabyte table</div>
+        <table class="table table-condensed table-bordered">
+            <tr>
+                <th>Mega Bytes</th>
+                <th>Kilo Bytes</th>
+                <th>Bytes</th>
+            </tr>
+            <tr ng-repeat="c in [].constructor(showCount|| 20) track by $index">
+                <td>{{$index+1}}</td>
+                <td>{{($index+1) * 1024}}</td>
+                <td>{{($index+1) * 1024 * 1024}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <a class="btn btn-xs btn-success" href="javascript:void(0)" ng-click="showCount = (showCount||20) + 10" title="Add 10 more rows"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;10</a>
+                    <a class="btn btn-xs btn-danger pull-right" ng-show="showCount>20" href="javascript:void(0)" ng-click="showCount = (showCount||20) - 10" title="Remove 10 rows"><span class="glyphicon glyphicon-minus"></span>&nbsp;&nbsp;10</a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+
+</div>

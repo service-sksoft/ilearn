@@ -69,6 +69,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\directives\wt-toolbox.html" />
+    <Content Include="app\web-tools\pages\transform-text.html" />
+    <Content Include="app\web-tools\pages\base-to-string.html" />
+    <Content Include="app\web-tools\pages\file-to-byte-array.html" />
+    <Content Include="app\web-tools\pages\word-count.html" />
+    <Content Include="app\web-tools\pages\string-to-base.html" />
+    <Content Include="app\web-tools\pages\byte-conversion.html" />
+    <Content Include="app\web-tools\web-tools.html" />
+    <Content Include="app\web-tools\WebToolController.js" />
+    <Content Include="app\search\search.html" />
+    <Content Include="app\search\SearchController.js" />
     <Content Include="app\tutorial\tutorial.html" />
     <Content Include="app\tutorial\TutorialController.js" />
     <Content Include="app\external-resource\external-resource.html" />
@@ -93,8 +104,6 @@
     <Content Include="app\edit\tutorial\EditTutorialController.js" />
     <Content Include="app\home\home.html" />
     <Content Include="app\home\HomeController.js" />
-    <Content Include="app\home\item.service.js" />
-    <Content Include="app\layout\dir-menu.view.html" />
     <Content Include="app\layout\header.controller.js" />
     <Content Include="app\layout\header.view.html" />
     <Content Include="app\quiz\quiz.html" />
@@ -128,6 +137,7 @@
     <Content Include="css\jquery.cleditor.css" />
     <Content Include="css\jquery.mobile-1.4.2.min.css" />
     <Content Include="css\prism.css" />
+    <Content Include="gulpfile.js" />
     <Content Include="images\ajax-loader.gif" />
     <Content Include="images\document.png" />
     <Content Include="images\FancyBox\buttons.gif" />
@@ -176,6 +186,7 @@
     <Content Include="js\jquery.cleditor.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.mobile-1.4.2.min.js" />
+    <Content Include="js\lib.js" />
     <Content Include="js\Lines.js" />
     <Content Include="css\loading-bar.css" />
     <Content Include="js\loading-bar.js" />
@@ -189,6 +200,9 @@
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="package.json" />
+    <Content Include="gulp-config.json" />
+    <None Include="Properties\PublishProfiles\web-ilearn-in.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

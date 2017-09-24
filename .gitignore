@@ -39,3 +39,7 @@ _ReSharper*/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
 
+ILearn.Web/node_modules/
+web-published/
+published/packages.config
+published/

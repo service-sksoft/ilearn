@@ -27,15 +27,15 @@
                 <td>{{topic.ID}}</td>
                 <td>{{topic.Name}}</td>
                 <td>{{topic.DisplayName}}</td>
-                <td class="text-center"><img src="{{vm.getImageUrl(topic.Image)}}" class="img-small" /></td>
-                <td class="link"><a href="javascript:void(0)" ng-click="vm.editTopic(topic)" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td class="link"><a href="javascript:void(0)" ui-sref="edit-interview({ topicId : topic.ID})"><span class="glyphicon glyphicon-user"></span></a></td>
-                <td class="link"><a href="javascript:void(0)" ui-sref="edit-multiple-choice({ topicId : topic.ID})"><span class="glyphicon glyphicon-ok"></span></a></td>
-                <td class="link"><a href="javascript:void(0)" ui-sref="edit-tutorial({ topicId : topic.ID})"><span class="glyphicon glyphicon-file"></span></a></td>
+                <td class="text-center"><img ng-src="data:image/png;base64, {{topic.Image}}" class="img-small" /></td>
+                <td><a href="javascript:void(0)" ng-click="vm.editTopic(topic)" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a href="javascript:void(0)" ui-sref="edit-interview({ topicId : topic.ID})"><span class="glyphicon glyphicon-user"></span></a></td>
+                <td><a href="javascript:void(0)" ui-sref="edit-multiple-choice({ topicId : topic.ID})"><span class="glyphicon glyphicon-ok"></span></a></td>
+                <td><a href="javascript:void(0)" ui-sref="edit-tutorial({ topicId : topic.ID})"><span class="glyphicon glyphicon-file"></span></a></td>
             </tr>
 
             <tr ng-if="vm.topicList.length===0">
-                <td colspan="6" class="text-center text-sm">No topic found</td>
+                <td colspan="8" class="text-center text-sm">No topic found</td>
             </tr>
         </table>
     </div>
@@ -83,7 +83,7 @@
 
                                 </div>
                                 <div class="col-sm-4">
-                                    <img src="{{vm.getImageUrl(vm.topic.Image)}}" style="width:40px; float:right" />
+                                    <img ng-src="data:image/png;base64,{{vm.topic.Image}}" style="width:40px; float:right" />
                                 </div>
                             </div>
                             <br />

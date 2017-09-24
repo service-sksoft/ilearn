@@ -1,8 +1,10 @@
 ﻿(function () {
     'use strict';
     angular.module('app', ['ui.router', 'oc.lazyLoad', 'toaster', 'chieffancypants.loadingBar'])
-    .config(config);
+    .config(config)
+    .run(run)
     config.$inject = ['$httpProvider', '$stateProvider', '$urlRouterProvider', '$provide', '$sceDelegateProvider', '$ocLazyLoadProvider', 'cfpLoadingBarProvider'];
+
     function config($httpProvider, $stateProvider, $urlRouterProvider, $provide, $sceDelegateProvider, $ocLazyLoadProvider, cfpLoadingBarProvider) {
 
         cfpLoadingBarProvider.includeSpinner = true;
@@ -117,46 +119,74 @@
                     }]
                 }
             })
-        .state('multiple-choice', {
-            url: '/multiple-choice/:url/:page',
+            .state('multiple-choice', {
+                url: '/multiple-choice/:url/:page',
+                parent: 'header',
+                templateUrl: 'app/multiple-choice/multiple-choice.html',
+                controller: 'MultipleChoiceController',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyCtrl: ["$ocLazyLoad", "$rootScope", function ($ocLazyLoad, $rootScope) {
+                        return $ocLazyLoad.load([
+                        "app/multiple-choice/MultipleChoiceController.js"
+                        ]);
+                    }]
+                }
+            })
+            .state('external-resource', {
+                url: '/external-resource/:url/:page',
+                parent: 'header',
+                templateUrl: 'app/external-resource/external-resource.html',
+                controller: 'ExternalResourceController',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyCtrl: ["$ocLazyLoad", "$rootScope", function ($ocLazyLoad, $rootScope) {
+                        return $ocLazyLoad.load([
+                        "app/external-resource/ExternalResourceController.js"
+                        ]);
+                    }]
+                }
+            })
+            .state('tutorial', {
+                url: '/tutorial/:url/:subtitle',
+                parent: 'header',
+                templateUrl: 'app/tutorial/tutorial.html',
+                controller: 'TutorialController',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyCtrl: ["$ocLazyLoad", "$rootScope", function ($ocLazyLoad, $rootScope) {
+                        return $ocLazyLoad.load([
+                        "app/tutorial/TutorialController.js",
+                        "js/prism.js",
+                        "css/prism.css"
+                        ]);
+                    }]
+                }
+            })
+            .state('search', {
+                url: '/search/:term',
+                parent: 'header',
+                templateUrl: 'app/search/search.html',
+                controller: 'SearchController',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyCtrl: ["$ocLazyLoad", "$rootScope", function ($ocLazyLoad, $rootScope) {
+                        return $ocLazyLoad.load([
+                        "app/search/SearchController.js"
+                        ]);
+                    }]
+                }
+            })
+        .state('web-tools', {
+            url: '/web-tools/:type',
             parent: 'header',
-            templateUrl: 'app/multiple-choice/multiple-choice.html',
-            controller: 'MultipleChoiceController',
+            templateUrl: 'app/web-tools/web-tools.html',
+            controller: 'WebToolController',
             controllerAs: 'vm',
             resolve: {
                 loadMyCtrl: ["$ocLazyLoad", "$rootScope", function ($ocLazyLoad, $rootScope) {
                     return $ocLazyLoad.load([
-                    "app/multiple-choice/MultipleChoiceController.js"
-                    ]);
-                }]
-            }
-        })
-        .state('external-resource', {
-            url: '/external-resource/:url/:page',
-            parent: 'header',
-            templateUrl: 'app/external-resource/external-resource.html',
-            controller: 'ExternalResourceController',
-            controllerAs: 'vm',
-            resolve: {
-                loadMyCtrl: ["$ocLazyLoad", "$rootScope", function ($ocLazyLoad, $rootScope) {
-                    return $ocLazyLoad.load([
-                    "app/external-resource/ExternalResourceController.js"
-                    ]);
-                }]
-            }
-        })
-        .state('tutorial', {
-            url: '/tutorial/:url/:subtitle',
-            parent: 'header',
-            templateUrl: 'app/tutorial/tutorial.html',
-            controller: 'TutorialController',
-            controllerAs: 'vm',
-            resolve: {
-                loadMyCtrl: ["$ocLazyLoad", "$rootScope", function ($ocLazyLoad, $rootScope) {
-                    return $ocLazyLoad.load([
-                    "app/tutorial/TutorialController.js",
-                    "js/prism.js",
-                    "css/prism.css"
+                    "app/web-tools/WebToolController.js"
                     ]);
                 }]
             }
@@ -190,10 +220,19 @@
             };
         }
 
-        run.$inject = ['$rootScope', '$location', '$http', '$state'];
-        function run($rootScope, $location, $http, $state) {
-            //$http.defaults.headers.common['XSRF-TOKEN'] = $rootScope.xsrf;
+
+    }
+
+    run.$inject = ['$rootScope', '$location', '$http', '$state'];
+    function run($rootScope, $location, $http, $state) {
+        window.BACK_END = "http://api.ilearn.net.in/";
+        window.API_BASE = "http://api.ilearn.net.in/api/";
+
+        if (location.href.indexOf('localhost') > -1) {
+            window.BACK_END = "http://localhost/ILearn.WebApi/";
+            window.API_BASE = "http://localhost/ILearn.WebApi/api/";
         }
     }
+
 })();
 

@@ -1,0 +1,25 @@
+﻿<div class="row">
+    <div class="col-sm-6 col-xs-12">
+        <div class="wt-content-title">Select file to convert to byte array</div>
+        <br />
+        <div class="uploadIcon">
+            <input type="file" file-model="myFile" posted-file="vm.inputFile" class="fileUploadInput">
+        </div>
+        <br />
+        <a href="javascript:void(0)" class="btn btn-sm btn-primary" ng-click="vm.fileToByteArray(vm.inputFile)">Convert to byte array</a>
+        <br /><br />
+        <span class="text-info" ng-if="vm.loadingContent">Converting to byte array...</span>
+        <span class="text-danger" ng-if="vm.errorMessage">{{vm.errorMessage}}</span>
+
+         
+
+    </div>
+
+    <div class="col-sm-6 col-xs-12">
+        <div class="wt-content-title">Byte Array of file
+            <web-tool-box inputtext="vm.byteArrayOfFile"></web-tool-box>
+        </div>
+        <div class="wt-content-desc converted-text">{{vm.byteArrayOfFile || 'Result will be displayed here'}}</div>
+        <div class="wt-content-sep"></div>
+    </div>
+</div>

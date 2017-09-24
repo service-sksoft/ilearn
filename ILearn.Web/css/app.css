@@ -11,12 +11,13 @@
 .pagination > li > a, .pagination > li > span { padding: 3px 12px !important; background-color: #f2f2f3 !important; }
 .pagination > li.disabled > a { background-color: #d4cece !important; opacity: 0.8 !important; }
 
+
 .header-logo-box { margin-top: 2px; }
 
 /*Content starts*/
 body { font-size: 13px !important; }
 .qt { border: 1px solid rgb(241, 238, 236); box-shadow: 1px 1px 1px 1px #f3f3f3; margin-bottom: 15px; margin-top: 6px; font-size: 0.9em; color: rgb(114, 107, 107) !important; }
-.qt:hover >  :not(.btn) { background-color: #fbfbfb; }
+.qt:hover > :not(.btn) { background-color: #fbfbfb; }
 .tblQuesList { width: 100%; padding: 10px !important; }
 .tblQuesList tr:nth-child(1) td { padding: 10px; margin-bottom: 1px; }
 .list-group-item { padding: 5px 10px !important; }
@@ -64,21 +65,185 @@ pre { background-color: unset !important; border: none !important; }
     .qlink { height: 27px; margin: 12px 5px 8px 15px; padding: 6px 0px 29px 2px; }
     .content-intro-box > h3 { font-size: 30px; }
     .content-intro-box > p { padding: 8px; }
-    .tutorial-content { margin-left: 10px; }
     .answerbox { margin-left: 10px; }
     .content-intro-box > img { height: 65px; width: 65px; right: 1px; top: -42px; }
     .no-data { margin-left: 10px; }
+    .search-page-header > h1 { font-size: 22px !important; }
+    .a-company-name { font-size: 18px !important; }
 }
 
 @media screen and (max-width: 309px) {
     .qlink { height: 27px; margin: 12px 5px 8px 15px; padding: 6px 0px 29px 2px; }
     .content-intro-box > h3 { font-size: 20px; }
-    .content-intro-box > p { padding: 2px; font-size: 11px; }
+    .content-intro-box > p { padding: 5px 2px 5px 5px; font-size: 11px; }
     .qcount { width: 19%; }
-    .tutorial-content { margin-left: 10px; }
     .answerbox { margin-left: 10px; }
     .content-intro-box > img { height: 65px; width: 65px; right: 1px; top: -42px; }
     .no-data { margin-left: 10px; }
     .qtext { font-size: 11px; }
     .content-intro-box { padding: 10px 0px 10px 9px; }
+    .search-page-header > h1 { font-size: 20px !important; }
+    .a-company-name { font-size: 16px !important; }
 }
+
+.btn-search-link { background-color: #efefef !important; width: 35px !important; border-color: white !important; }
+.marginTop-5 { margin-top: -5px; }
+
+
+/*App css starts*/
+a { text-decoration: none !important; }
+.a-company-name { font-size: 20px; margin-left: 14px; }
+.row { margin-right: 0px !important; }
+
+.layout-header-row1 { height: 28px; line-height: 26px; }
+
+
+.ul-top-header { list-style: none; }
+.ul-top-header li { display: inline; margin-right: 15px; }
+.ul-top-header li a { display: inline-block; text-transform: uppercase; text-decoration: none; color: #908a8a; font-size: 11.5px; font-family: 'Roboto',Arial,Helvetica,sans-serif; }
+.ul-top-header li a:hover { text-decoration: none; border-bottom: 2px solid #ec8a8a; }
+.ul-top-header li a.selected { color: #333; font-weight: bold; border-bottom: 2px solid #3a51a2; }
+.ul-top-header-right a { color: royalblue !important; font-weight: bold; }
+.ul-top-header-links { margin-top: 8px; }
+.layout-header-row2 { padding: 8px 0px 8px 10px; -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2); -moz-box-shadow: 0 1px 3px rgba(0,0,0,.2); box-shadow: 0 1px 3px rgba(0,0,0,.2); }
+.imglogo { height: 35px; }
+
+.layout_footer { background-color: rgba(47, 44, 44, 0.63); height: 170px; color: white; margin-top: 50px; }
+.home-footer-follow-us { text-transform: uppercase; text-align: center; letter-spacing: 1px; padding-top: 20px; font-weight: bold; font-size: 17px; margin-bottom: 15px; }
+
+
+ul.spicesocialwidget { padding-left: 0px !important; }
+ul.spicesocialwidget li { list-style: none outside none; border: none; }
+ul.spicesocialwidget li a { background-color: transparent; background-image: url('../bootstrap/css/Images/social-media.png'); background-repeat: no-repeat; background-size: auto 96px; border: 0 none; color: white; direction: ltr; display: block; height: 32px; overflow: hidden; text-align: left; text-decoration: none; text-indent: -999em; transition: all 0.2s ease 0s; width: 32px; }
+.ie7 ul.spicesocialwidget li a, .ie8 ul.spicesocialwidget li a { background-image: url('../bootstrap/css/Images/social-media.png' ); }
+ul.spicesocialwidget li.facebook a { background-position: 0 0; }
+ul.spicesocialwidget li.flickr a { background-position: -32px 0; }
+ul.spicesocialwidget li.dribbble a { background-position: -64px 0; }
+ul.spicesocialwidget li.googleplus a { background-position: -96px 0; }
+ul.spicesocialwidget li.linkedin a { background-position: -128px 0; }
+ul.spicesocialwidget li.pinterest a { background-position: -160px 0; }
+ul.spicesocialwidget li.rss a { background-position: -192px 0; }
+ul.spicesocialwidget li.skype a { background-position: -224px 0; }
+ul.spicesocialwidget li.twitter a { background-position: -256px 0; }
+ul.spicesocialwidget li.vimeo a { background-position: -288px 0; }
+ul.spicesocialwidget li.youtube a { background-position: -320px 0; }
+ul.spicesocialwidget li.facebook a:hover, #sidebar ul.spicesocialwidget li.facebook a:hover { background-position: 0 -32px; }
+ul.spicesocialwidget li.flickr a:hover, #sidebar ul.spicesocialwidget li.flickr a:hover { background-position: -32px -32px; }
+ul.spicesocialwidget li.dribbble a:hover, #sidebar ul.spicesocialwidget li.dribbble a:hover { background-position: -64px -32px; }
+ul.spicesocialwidget li.googleplus a:hover, #sidebar ul.spicesocialwidget li.googleplus a:hover { background-position: -96px -32px; }
+ul.spicesocialwidget li.linkedin a:hover, #sidebar ul.spicesocialwidget li.linkedin a:hover { background-position: -128px -32px; }
+ul.spicesocialwidget li.pinterest a:hover, #sidebar ul.spicesocialwidget li.pinterest a:hover { background-position: -160px -32px; }
+ul.spicesocialwidget li.rss a:hover, #sidebar ul.spicesocialwidget li.rss a:hover { background-position: -192px -32px; }
+ul.spicesocialwidget li.skype a:hover, #sidebar ul.spicesocialwidget li.skype a:hover { background-position: -224px -32px; }
+ul.spicesocialwidget li.twitter a:hover, #sidebar ul.spicesocialwidget li.twitter a:hover { background-position: -256px -32px; }
+ul.spicesocialwidget li.vimeo a:hover, #sidebar ul.spicesocialwidget li.vimeo a:hover { background-position: -288px -32px; }
+ul.spicesocialwidget li.youtube a:hover, #sidebar ul.spicesocialwidget li.youtube a:hover { background-position: -320px -32px; }
+
+.social { text-align: center; background-color: #fff5f5; width: 200px; margin: auto; border-radius: 26px; padding-top: 5px; }
+.copyright { text-align: center; }
+
+.home-disclaimer { text-align: center; font-size: 12px; margin-top: 25px; }
+.home-disclaimer a { color: white !important; }
+
+/*App css Ends*/
+
+/*External resources starts*/
+.er-list { width: 100%; padding: 12px 10px 20px 10px; background-color: #f7f7f7; min-height: 100px; }
+.er-list:hover { box-shadow: 5px 6px 10px #888883; }
+.er-title { }
+.er-box { margin-bottom: 10px; }
+.er-img { position: absolute; height: 56px; right: 17px; top: 3px; opacity: 0.5; width: 60px; }
+.er-desc { color: #808080; font-weight: normal; font-size: 12px; margin-top: 7px; }
+/*External resources ends*/
+
+
+/*Home css starts*/
+.banner-img { width: 100%; height: 340px; margin-top: 2px; }
+.wrap { max-width: 1280px; width: 99%; margin: auto; position: relative; }
+.wrap-a { position: absolute; right: 0; top: 0; font-weight: 400; font-size: 14px; text-decoration: none; text-shadow: 0px 1px 5px rgba(255, 255, 255, 0.4); height: 65px; width: 110px; background-color: #fff; text-align: center; padding: 10px; border-radius: 0 0 2px 2px; border-top: 2px solid #efebeb; }
+.home-search { max-width: 1140px; width: 90%; background: rgba(51,47,47,.7); padding: 30px 20px 30px 20px; z-index: 101; border-radius: 2px; margin: auto; }
+.topic-srch { position: absolute; bottom: 330px; left: 0; right: 0; margin: auto; }
+.home-search-title { color: #e4e4e4; margin-bottom: 7px; font-size: 13px; font-style: italic; }
+.topic-box { background-color: #f1f1f1; padding: 15px 0px 10px 10px; border-radius: 4px; margin-top: 0px; }
+/*.divgrp { padding: 10px; background-color: white; height: 180px; margin-bottom: 20px; }
+    .divgrp:hover { box-shadow: 5px 6px 10px #888883; padding: 35px; }*/
+
+.divgrp { padding: 5px; box-shadow: 1px 1px 7px #bfbfb0; background-color: white; margin-bottom: 5px; height: 75px; cursor: pointer; }
+.divgrp:hover .divgrp-internal { display: block; display: block; -webkit-animation: fadeIn 1s; animation: fadeIn 1s; }
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.divgrp-internal { display: none; position: absolute; background-color: rgba(56, 52, 52, 0.52); height: 75px; width: 94%; margin-top: -5px; margin-left: 8px; margin-right: -5px; z-index: 9999999; }
+.link { border: 1px solid #e2e2e2; padding: 5px 5px 5px 5px; border-radius: 4px; margin-bottom: 10px; display: none; }
+
+.topic-inside { margin-top: 5px; margin-left: 11px; }
+.topic-inside-link { background-color: white; border-radius: 4px; height: 50px; padding: 5px 3px 3px 3px; text-align: center; opacity: .9; margin-top: 8px; }
+.topic-inside-interview { background-color: #255bbd; color: white; }
+.topic-inside-tutorial { background-color: #fdff80; color: #7d6d6d; }
+.topic-img { width: 100%; height: 67%; margin-top: 12px; margin-left: 8px; }
+.topic-content { margin-top: 17px; }
+.home-topic-name { font-size: 11px; color: #8f9498 !important; }
+.home-ques-count { font-size: 11.4px; color: #c34146 !important; display: block; font-weight: bold; }
+
+/*Desktop*/
+@media screen and (max-width: 768px) and (min-width: 555px) {
+    .topic-img { width: 65px; height: 55px; margin-top: 6px; }
+    .divgrp-internal { width: 96%; }
+    .topic-box { padding: 15px 0px 9px 10px; }
+}
+/*Tablet*/
+@media screen and (max-width: 557px) and (min-width: 350px) {
+    .topic-img { width: 60px; height: 60px; margin-top: 3px; }
+    .divgrp-internal { width: 94%; }
+    .topic-box { padding: 15px 0px 9px 10px; }
+    .topic-content { margin-top: 8px; }
+    .search-tool-box { width: 80% !important; }
+}
+/*Mobile*/
+@media screen and (max-width: 349px)and (min-width: 10px) {
+    .topic-img { width: 100%; height: 67%; margin-top: 12px; margin-left: 8px; }
+    .divgrp-internal { width: 91%; }
+    .topic-box { padding: 15px 0px 9px 10px; }
+    .topic-content { margin-top: 2px; }
+    .search-tool-box { width: 80% !important; }
+    .wt-box { padding: 10px 0px 10px 10px !important; margin-bottom: 10px !important; }
+}
+
+.home-content hr { width: 50%; background-color: #65a2bd; height: 2px; border-radius: 4px; }
+.home-scroller { height: 100px; background-color: whitesmoke; }
+.carousel { height: 100px; }
+.home-slide { background-color: white; border: 1px solid red; }
+
+.carousel-control.left, .carousel-control.right { width: 30px; }
+.carousel-content { height: 100px; background-color: white; }
+.carousel-content-first { margin-left: 5px; padding: 10px 10px 10px 35px; }
+.carousel-content-second { margin-left: 9px; margin-right: -25px; padding: 10px 10px 10px 15px; }
+.carousel-content-third { margin-left: 35px; margin-right: -25px; padding: 10px 45px 10px 15px; }
+
+.item { background-color: #f1f1f1; padding: 8px 8px 8px 8px; }
+.carousel-content:hover { box-shadow: 1px 1px 7px #bfbfb0; }
+.carousel-control.left, .carousel-control.right { height: 101px; margin-top: 7px; background-image: linear-gradient(to right,rgb(51, 56, 208) 0,rgb(55, 64, 181) 100%) !important; width: 20px; }
+.glyphicon-chevron-right, .carousel-control .icon-next { margin-right: -9px !important; padding-left: 10px !important; }
+.carousel-ques { font-weight: bold; color: #3921b9; margin-bottom: 9px; }
+.carousel-ans { font-size: 11px !important; color: #a09191; line-height: 1.5em; text-align: justify; }
+
+.carousel-control > .glyphicon { font-size: 15px; font-weight: normal; margin-top: -5px; }
+.btn-search { background-color: #d43838; padding: 8px 35% 8px 35%; display: inline-block; color: white; font-weight: bold; border-radius: 2px; }
+.btn-search:hover { background-color: #e8e1e1; color: #c53c3c; -webkit-animation: fadeIn 2s; animation: fadeIn 2s; }
+/*Home css Ends*/
+
+.margin-left-10 { margin-left: 10px !important; }
+.margin-top-10 { margin-top: 10px; }
+.margin-bottom-10 { margin-bottom: 10px; }
+
+.margin-right-10 { margin-right: 10px !important; }
+.margin-left-20 { margin-left: 20px !important; }
+.margin-right-20 { margin-right: 20px !important; }

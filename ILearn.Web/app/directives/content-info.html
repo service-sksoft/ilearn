@@ -3,7 +3,7 @@
         <div class="content-intro-box">
             <h3>{{topic.DisplayName}}</h3>
             <p>{{topic.Description}}</p>
-            <img ng-src="{{BACK_END + topic.Image}}" class="topic-img-small" />
+            <img ng-src="data:image/png;base64, {{topic.Image}}" class="topic-img-small" />
         </div>
     </div>
 

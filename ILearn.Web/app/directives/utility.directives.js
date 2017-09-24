@@ -29,6 +29,20 @@
                 templateUrl: "app/directives/content-info.html"
             };
         })
+        .directive('webToolBox', function (Util_Common) {
+            return {
+                restrict: 'E',
+                scope: {
+                    inputtext: '='
+                },
+                link: function (scope, element, attrs) {
+                    scope.copyToClipboard = Util_Common.copyToClipboard;
+                    scope.openInNewWindow = Util_Common.openInNewWindow;
+                    scope.printText = Util_Common.printText;
+                },
+                templateUrl: "app/directives/wt-toolbox.html"
+            };
+        })
       .directive('dirPagination', function ($state) {
           return {
               restrict: 'E',

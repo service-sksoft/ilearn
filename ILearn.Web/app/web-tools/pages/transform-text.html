@@ -1,0 +1,27 @@
+﻿<div class="row">
+    <div class="col-sm-6 col-xs-12">
+        <div class="wt-content-title">
+            Original Text
+            <div class="pull-right">
+                <a href="javascript:void(0)" class="btn btn-xs btn-default" ng-class="{'btn-primary' : transformAction=='l' }" ng-click="transformAction='l'; vm.transformText('l')">lowercase</a>
+                <a href="javascript:void(0)" class="btn btn-xs btn-default" ng-class="{'btn-primary' : transformAction=='u' }" ng-click="transformAction='u'; vm.transformText('u')">UPPERCASE</a>
+                <a href="javascript:void(0)" class="btn btn-xs btn-default" ng-class="{'btn-primary' : transformAction=='t' }" ng-click="transformAction='t'; vm.transformText('t')">Titlecase</a>
+
+            </div>
+        </div>
+        <textarea rows="10" class="form-control" ng-model="vm.inputText" placeholder="Enter text to transform to UPPERCASE, lowercase or Titlecase. You may paste copied text too."></textarea>
+        <a href="javascript:void(0)" class="btn btn-xs btn-danger pull-right margin-top-10" ng-click="vm.inputText='';transformAction='';vm.transformedText='';">Clear</a>
+    </div>
+
+    <div class="col-sm-6 col-xs-12">
+        <div class="wt-content-sep visible-sm visible-xs"></div>
+        <div class="wt-content-title">
+            Transformed Text
+            <web-tool-box inputtext="vm.transformedText"></web-tool-box>
+        </div>
+        <div class="wt-content-desc">
+            <textarea rows="12" class="form-control transformed-textarea"  ng-model="vm.transformedText" ng-disabled="true" placeholder="Result will be displayed here"></textarea>
+            <div class="wt-content-sep"></div>
+        </div>
+    </div>
+</div>

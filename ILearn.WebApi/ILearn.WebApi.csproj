@@ -190,6 +190,7 @@
   <ItemGroup>
     <Content Include="ViewModels\web.config" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\ilearn-api-publish.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

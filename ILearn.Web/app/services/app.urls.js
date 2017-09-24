@@ -1,14 +1,13 @@
-﻿(function () {
+﻿
+(function () {
     'use strict';
 
     angular
         .module('app')
         .constant('Url', {
-            BACK_END: 'http://localhost/ILearn.WebApi/',
-            //API_BASE: '/learningzone/query.ashx/',
-            API_BASE: 'http://localhost/ILearn.WebApi/api/',
+            BACK_END: window.BACK_END,
+            API_BASE: window.API_BASE,
             BASIC_INFO: 'topics',
-            //BASIC_INFO: '?action=basicinfo',
             HOME_CONTENT: "topics",
             GET_QUESTIONS: "?action=GetQuestions",
             GET_ALL_QUESTIONS: "?action=GetAllQuestions",

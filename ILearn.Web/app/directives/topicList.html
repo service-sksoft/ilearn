@@ -1,7 +1,7 @@
 ﻿<ul class="list-group">
     <li ng-repeat="topic in topics" class="list-group-item" ng-class="{active : topic.ID===selectedTopic}">
         <a href="javascript:void(0)" ng-click="vm.scrollTop()" ng-href="{{$state.href(type, {url : topic.URL, page : 1})}}" class="home-topic-name">
-            <img ng-src="{{BACK_END + topic.Image}}" class="topic-img-small" />
+            <img ng-src="data:image/png;base64, {{topic.Image}}" class="topic-img-small" />
             {{topic.Name}}
         </a>
     </li>

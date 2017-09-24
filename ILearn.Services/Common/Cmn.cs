@@ -3,6 +3,8 @@
     using System.IO;
     using System.Web;
     using System.IO.Compression;
+    using System.Drawing;
+    using System;
 
     public static class Cmn
         {
@@ -11,13 +13,19 @@
         public static string TopicFolder = "Topics/";
 
         public static int MaxQuestionPerPage = 10;
+
+        public static string ImageToBase64(string filePath)
+            {
+            return Convert.ToBase64String(System.IO.File.ReadAllBytes(HttpContext.Current.Server.MapPath("~" + filePath)));
+            }
+
         public static string getTopicImageURL(int topicID)
             {
 
             string filePath = UploadFolder + TopicFolder + "topic_" + topicID + ".png";
             if (File.Exists(HttpContext.Current.Server.MapPath("~" + filePath)))
                 {
-                return filePath;
+                return ImageToBase64(filePath);
                 }
             return "";
 
@@ -91,7 +99,7 @@
 
             return string.Empty;
             }
-        
+
         }
-    
+
     }

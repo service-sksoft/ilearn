@@ -1,0 +1,20 @@
+﻿<div class="row">
+    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+        <textarea rows="15" class="form-control" ng-model="vm.wordCountBox" placeholder="Enter text to count word/character count. You may paste copied text too." ng-change="vm.countWords()"></textarea>
+        <a href="javascript:void(0)" class="btn btn-xs btn-danger pull-right margin-top-10" ng-click="vm.wordCountBox=''; vm.countWords();">Clear</a>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-4  col-xs-12">
+        <div class="wt-content-title">Words</div>
+        <div class="wt-content-desc">{{vm.wordCount || 0}}</div>
+        <div class="wt-content-sep"></div>
+
+        <div class="wt-content-title">Characters</div>
+        <div class="wt-content-desc">{{vm.charCount || 0}}</div>
+        <div class="wt-content-sep"></div>
+
+        <div class="wt-content-title">Paragraphs</div>
+        <div class="wt-content-desc">{{vm.paraCount|| 0}}</div>
+        <div class="wt-content-sep"></div>
+    </div>
+</div>

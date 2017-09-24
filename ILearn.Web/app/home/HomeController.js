@@ -9,6 +9,8 @@
         var vm = this;
         Util_Common.bindCommonFunctions(vm, initRequest);
 
+        vm.homeBannerImage = Util_Common.homeBannerImage;
+
         vm.carousalQuestions = [];
 
         function initRequest() {
@@ -17,6 +19,10 @@
         }
 
         function getCarousalQuestions() {
+            if ($(window).width() < 753) {
+                $(".home-scroller").hide();
+                return;
+            }
 
             var buildCarousal = function (list) {
                 vm.carousalQuestions = [];
@@ -31,6 +37,7 @@
                             });
                     }
                 }
+
                 window.setTimeout(function () {
                     $(".home-scroller").show();
                     $('.carousel').carousel();
@@ -57,5 +64,15 @@
                 $(".home-scroller").hide();
             });
         }
+
+        vm.searchByEnterKey = function (evt) {
+            if ((evt.keyCode || evt.which) === 13) {
+                vm.search(evt.target.value);
+            }
+        };
+
+        vm.search = function (searchTerm) {
+            $state.go('search', { term: searchTerm });
+        };
     }
 })();

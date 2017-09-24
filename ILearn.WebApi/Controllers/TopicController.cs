@@ -156,6 +156,27 @@
             });
             }
 
+        [Route("searchquestion")]
+        [HttpGet]
+        public HttpResponseMessage SearchQuestion(HttpRequestMessage request, [FromUri] string term)
+            {
+            term = term.ToUpper();
+
+            return CreateHttpResponse(request, () =>
+            {
+                var result = GlobalList.Questions.Where(m => m.Question.ToUpper().IndexOf(term) > -1).Take(25).ToList().Select(q => new
+                    {
+                    id = q.ID,
+                    q = q.Question,
+                    a = q.AnswerString,
+                    t = q.Language
+                    }).ToList();
+
+                response = request.CreateResponse(HttpStatusCode.OK, new { result });
+                return response;
+            });
+            }
+
 
         private void LoadGlobalData()
             {

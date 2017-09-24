@@ -17,7 +17,7 @@
                     return Util_Common.callWebApi(Url.API_BASE + Url.ITEMS);
                 },
                 getTopics: function () {
-                    return Util_Common.callWebApi(Url.API_BASE + '/' + Url.TOPIC + '/topics');
+                    return Util_Common.callWebApi(Url.API_BASE + Url.TOPIC + '/topics');
                 },
                 getQuestionDetail: function (ID) {
                     return Util_Common.callWebApi(Url.API_BASE + Url.QUESTION + "/" + Url.QUESTION_DETAIL + '/' + ID);
@@ -102,7 +102,12 @@
                 },
                 getQuestionsForCarousal: function () {
                     return Util_Common.callWebApi(Url.API_BASE + Url.QUESTION + '/questionsforcarousal');
+                },
+                searchQuestions: function (searchTerm) {
+                    return Util_Common.callWebApi(Url.API_BASE + Url.TOPIC + '/searchquestion?term=' + searchTerm);
                 }
+
+
 
 
             };

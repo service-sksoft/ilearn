@@ -1,0 +1,43 @@
+﻿<div class="row" style="margin-left:0px!important">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="page-header search-page-header">
+            <h1>
+                '{{vm.id}}' <small>
+                    {{vm.questionList.length}} questions found!!!
+                    <a href="/" class="btn btn-xs btn-info pull-right"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Home</a>
+                </small>
+            </h1>
+
+        </div>
+
+        <div class="answerbox" ng-if="vm.questionList.length>0">
+            <div>
+
+                <div class='qt' ng-repeat="q in vm.questionList">
+                    <div class='tblQuesList'>
+                        <div class="search-ques-type hidden-xs" ng-if="q.topic">
+                            <a href="javascript:void(0)" title="show all questions of {{q.topic.Name}}" ui-sref="interview({url : q.topic.URL, page : 1})">
+                                <img ng-src="data:image/png;base64, {{q.topic.Image}}" class="topic-img-small pull-right" />
+                            </a>
+                        </div>
+
+                        <span class='ques' id='que_{{q.id}}' itemprop='keywords' data-id='{{q.id}}'>
+                            {{q.q}}
+                        </span>
+
+                        <div class='answerbox' data-id='{{q.id}}' itemprop='text' id='ans_{{q.id}}'>
+                            <span ng-bind-html="vm.$sce.trustAsHtml(q.a)"></span>
+                        </div>
+
+                        <div class="search-ques-type visible-xs pull-right marginTop-5" ng-if="q.topic">
+                            <a href="javascript:void(0)" class="btn btn-xs btn-search-link" title="show all questions of {{q.topic.Name}}" ui-sref="interview({url : q.topic.URL, page : 1})"> <img ng-src="data:image/png;base64, {{q.topic.Image}}" class="topic-img-small" /></a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="no-data text-sm" ng-if="vm.questionList.length===0">No questions found with '{{vm.id}}'</div>
+    </div>
+</div>
